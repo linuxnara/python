@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 # mofette@naver.com
 #
 
+# csrf 세션 정보 얻기
 def getSession():
 
     curl = "curl -D /home/rudolph/Python/camping/foresttrip_jsession.txt 'https://www.foresttrip.go.kr/main.do?hmpgId=FRIP' -s -o /home/rudolph/Python/camping/foresttrip_csrf.txt"
@@ -39,6 +40,7 @@ def getSession():
     return [findsession, _csrf]
     
 
+# 자연휴양림 html 페이지 파싱
 def getHtml(startDate, endDate, _csrf, jsession):
     stDate = startDate.replace('-', '')
     edDate = endDate.replace('-', '')
@@ -91,6 +93,7 @@ def getHtml(startDate, endDate, _csrf, jsession):
     return data
 
 
+#특정 정보 찾기
 def parsingHtml(htmlData):
     
     soup = BeautifulSoup(htmlData, 'html.parser')    
@@ -135,6 +138,7 @@ def weekSunday():
 
     return rtnDate
 
+#예약가능한 자연 휴양림 정보 슬랙으로 메시지 전송
 def sendslack(msg):
     #your hook token
     hooktoken = ''
@@ -143,6 +147,8 @@ def sendslack(msg):
     os.system(cmd)
     time.sleep(0.1)
 
+
+#메인 시작
 if __name__ == '__main__':
 
     print('START : ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
@@ -162,6 +168,8 @@ if __name__ == '__main__':
     for st in startdate:
         print(st, enddate[startdate.index(st)])
         htmlData = getHtml(st, enddate[startdate.index(st)], _csrf, findsession)
+
+        #csrf 토큰을 얻기 전에 오류.. 현재는 자동으로 얻어오기 때문에 따로 필요없으나 예외처리이므로 남겨둠
         if(htmlData == '{"result_code":"-1", "ErrorCode" : "-5", "ErrorMsg" : "로그인 세션이 만료되었거나 접근방식이 올바르지 않습니다."}'):
             print("휴양림 X-CSRF-TOKEN 업데이트 필요!")
             sendslack("휴양림 X-CSRF-TOKEN 업데이트 필요!")
