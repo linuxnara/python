@@ -9,7 +9,7 @@ from urllib import parse
 from bs4 import BeautifulSoup
 
 # 
-# 자연휴양림 자리 찾기
+# 자연휴양림 자리 찾기(python3.8)
 # rudolph
 # mofette@naver.com
 # 20230309 - 리눅스 클론 서비스 돌리던걸 github  업로드
