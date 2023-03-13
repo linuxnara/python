@@ -7,3 +7,6 @@
 
 ## getTumblrVideo.py
 * 텀플러 동영상 크롤링
+
+## naverwebtoon.py
+* 네이버 웹툰을 다운받아서 이미지를 합치고 압축, 텔레그램 전송
