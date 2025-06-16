@@ -10,3 +10,6 @@
 
 ## naverwebtoon.py
 * 네이버 웹툰을 다운받아서 이미지를 합치고 압축, 텔레그램 전송
+
+## jenkins_changelog.py
+* jenkins 빌드 내용을 HTML 파일로 생성하여 빌드일자별 COMMIT내용, 변경파일 목록등을 HTML파일로 생성한다.
