@@ -13,3 +13,7 @@
 
 ## jenkins_changelog.py
 * jenkins 빌드 내용을 HTML 파일로 생성하여 빌드일자별 COMMIT내용, 변경파일 목록등을 HTML파일로 생성한다.
+
+## ordercountmonitor.py
+* 1분에 한번씩 특정 쿼리를 실행해서 그래프에 값을 표현
+  [img]
