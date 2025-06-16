@@ -16,4 +16,4 @@
 
 ## ordercountmonitor.py
 * 1분에 한번씩 특정 쿼리를 실행해서 그래프에 값을 표현
-  [img]
+  ![Figure_1.png]
